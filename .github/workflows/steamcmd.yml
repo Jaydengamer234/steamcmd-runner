@@ -29,7 +29,7 @@ jobs:
         ~/steamcmd/steamcmd.sh +login anonymous +force_install_dir ./output +app_update 4551040 validate +quit
 
     - name: Upload output
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: steamcmd-output
         path: output
