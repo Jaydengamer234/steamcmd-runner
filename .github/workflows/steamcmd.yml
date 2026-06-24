@@ -24,9 +24,12 @@ jobs:
         curl -sSL https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -xz
 
     - name: Run SteamCMD
+      env:
+        STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+        STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
       run: |
         mkdir -p output
-        ~/steamcmd/steamcmd.sh +login anonymous +force_install_dir ./output +app_update 4551040 validate +quit
+        ~/steamcmd/steamcmd.sh +force_install_dir ./output +login "$STEAM_USERNAME" "$STEAM_PASSWORD" +app_update 4551040 validate +quit
 
     - name: Upload output
       uses: actions/upload-artifact@v4
