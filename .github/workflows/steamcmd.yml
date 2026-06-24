@@ -1,7 +1,7 @@
 name: SteamCMD Puller
 
 on:
-  workflow_dispatch:   # lets you trigger it manually or via API
+  workflow_dispatch:
 
 jobs:
   steamcmd:
@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Checkout repo
-      uses: actions/upload-artifact@v4
+      uses: actions/checkout@v4
 
     - name: Install dependencies
       run: |
